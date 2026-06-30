@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>New Chat</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #ece5dd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        background: #fff;
+        padding: 30px;
+        width: 400px;
+        border-radius: 12px;
+        box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      h1 {
+        text-align: center;
+        color: #128c7e;
+        margin-bottom: 20px;
+      }
+
+      label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        font-size: 15px;
+      }
+
+      textarea {
+        resize: none;
+        height: 100px;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 12px;
+        background: #128c7e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background: #0d6f63;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>New Chat</h1>
+
+      <form action="/chats" method="POST">
+        <label>From</label>
+        <input
+          type="text"
+          name="from"
+          placeholder="Enter sender name"
+          required />
+
+        <label>To</label>
+        <input
+          type="text"
+          name="to"
+          placeholder="Enter receiver name"
+          required />
+
+        <label>Message</label>
+        <textarea
+          name="msg"
+          placeholder="Type your message..."
+          required></textarea>
+
+        <!-- <label>Date</label>
+        <input type="date" name="created_at" required /> -->
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </body>
+</html>

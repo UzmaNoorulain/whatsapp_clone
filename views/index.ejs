@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title>WhatsApp Clone</title>
+</head>
+<body>
+
+    <h1>💬 All Chats</h1>
+
+    <div class="top-btn">
+        <form action="/chats/new" method="get">
+            <button class="new-btn">+ New Chat</button>
+        </form>
+    </div>
+
+    <% for(let chat of chats){ %>
+
+        <div class="chat-box">
+
+            <div class="chat-header">
+                <span><strong>From:</strong> <%= chat.from %></span>
+            </div>
+
+            <div class="msg-box">
+                <%= chat.msg %>
+            </div>
+
+            <div class="chat-footer">
+
+                <div class="info">
+                    <p><strong>To:</strong> <%= chat.to %></p>
+                    <small>
+                        <%= chat.created_at.toLocaleDateString() %> |
+                        <%= chat.created_at.toLocaleTimeString() %>
+                    </small>
+                </div>
+
+                <div class="actions">
+
+                    <form action="/chats/<%= chat._id %>/edit" method="get">
+                        <button class="edit-btn">✏ Edit</button>
+                    </form>
+
+                    <!-- <form action="/chats/<%= chat._id %>?_method=DELETE" method="post">
+                        <button class="delete-btn">🗑 Delete</button>
+                    </form> -->
+
+                    <form class="delete-form" method="post" action="/chats/<%= chat._id %>?_method=DELETE">
+                         <button class="delete-btn">🗑 Delete</button>
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    <% } %>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/app.js"></script></body>
+</html>
